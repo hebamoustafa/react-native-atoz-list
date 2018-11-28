@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, PanResponder, TouchableOpacity, Vibration } from 'react-native';
+import { View, Text, PanResponder, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 class LetterPicker extends Component {
 
@@ -45,7 +46,7 @@ export default class AlphabetPicker extends Component {
     }
 
     _onTouchLetter(letter) {
-      Vibration.vibrate(500)
+      ReactNativeHapticFeedback.trigger('impactLight', true);
       letter && this.props.onTouchLetter && this.props.onTouchLetter(letter);
     }
 
@@ -70,9 +71,9 @@ export default class AlphabetPicker extends Component {
         });
     }
 
-  setLatter = (latter) => {
-      this._onTouchLetter(latter);
-  }
+    setLatter = (latter) => {
+        this._onTouchLetter(latter);
+    }
 
     render() {
         this._letters = this._letters || (
@@ -96,5 +97,4 @@ export default class AlphabetPicker extends Component {
             </View>
         );
     }
-
 }

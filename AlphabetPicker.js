@@ -47,6 +47,9 @@ export default class AlphabetPicker extends Component {
 
     _onTouchLetter(letter) {
         ReactNativeHapticFeedback.trigger('impactLight', true);
+        setTimeout(() => {
+          Vibration.cancel();
+        }, 250);
         letter && this.props.onTouchLetter && this.props.onTouchLetter(letter);
     }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, PanResponder, TouchableOpacity } from 'react-native';
+import { View, Text, PanResponder, TouchableOpacity, Vibration } from 'react-native';
 import PropTypes from 'prop-types';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 

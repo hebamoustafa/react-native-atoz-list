@@ -222,7 +222,7 @@ export default class FixedHeightWindowedListView extends Component {
 
       let key = id;
 
-      if (!(data && _.isObject(data) && data.sectionId)) {
+      if (!(data && _.isObject(data) && data && data.sectionId)) {
         parentSectionId = this.props.dataSource.getSectionId(idx)
         key = `${key}-${id}`;
       }
@@ -240,7 +240,7 @@ export default class FixedHeightWindowedListView extends Component {
   }
 
   __renderRow(data, parentSectionId, idx, key) {
-    if (data && _.isObject(data) && data.sectionId) {
+    if (data && _.isObject(data) && data && data.sectionId) {
       return this.props.renderSectionHeader(data, null, idx, key);
     } else {
       return this.props.renderCell(data, parentSectionId, idx, key);
